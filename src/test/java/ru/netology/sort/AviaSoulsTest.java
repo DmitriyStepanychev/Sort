@@ -69,11 +69,27 @@ class AviaSoulsTest {
     }
 
     @Test
-    public void sortTicketsByPriceAndTime() {
-        Ticket[] expected = {ticket8, ticket4, ticket6, ticket1, ticket9, ticket7};
+    public void sortTicketsByPriceAndTimeSeveralTickets() {
+        Ticket[] expected = {ticket7, ticket6, ticket1, ticket9, ticket8, ticket4};
         Ticket[] actual = tickets.searchAndSortBy("LED", "VVO", timeComparator);
 
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
+    @Test
+    public void sortTicketsByPriceAndTimeOneTicket() {
+        Ticket[] expected = {ticket10};
+        Ticket[] actual = tickets.searchAndSortBy("VVO", "LED", timeComparator);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void sortTicketsByPriceAndTimeNoTicket() {
+        Ticket[] expected = {};
+        Ticket[] actual = tickets.searchAndSortBy("AER", "LED", timeComparator);
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 
 }
