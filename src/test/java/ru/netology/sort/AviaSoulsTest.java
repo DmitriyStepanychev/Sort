@@ -91,5 +91,4 @@ class AviaSoulsTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
 }
